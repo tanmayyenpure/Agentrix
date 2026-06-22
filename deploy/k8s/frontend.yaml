@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flowforge-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flowforge-frontend
+  template:
+    metadata:
+      labels:
+        app: flowforge-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: flowforge-frontend:latest
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flowforge-frontend
+spec:
+  type: LoadBalancer
+  selector:
+    app: flowforge-frontend
+  ports:
+    - port: 80
+      targetPort: 80

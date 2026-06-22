@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --forge-bg: #0a0b0f;
+    --forge-surface: #111318;
+    --forge-surface-2: #181c24;
+    --forge-border: #1e2330;
+    --forge-accent: #6366f1;
+    --forge-accent-dim: #4f51c5;
+    --forge-green: #10b981;
+    --forge-red: #ef4444;
+    --forge-yellow: #f59e0b;
+    --forge-blue: #3b82f6;
+    --forge-text: #e2e8f0;
+    --forge-muted: #64748b;
+    --forge-node-trigger: #7c3aed;
+    --forge-node-action: #0ea5e9;
+    --forge-node-logic: #f59e0b;
+    --forge-node-transform: #10b981;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: var(--forge-bg);
+    color: var(--forge-text);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--forge-surface); }
+  ::-webkit-scrollbar-thumb { background: var(--forge-border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--forge-muted); }
+}
+
+/* React Flow overrides */
+.react-flow__background { background: var(--forge-bg) !important; }
+.react-flow__controls { background: var(--forge-surface) !important; border: 1px solid var(--forge-border) !important; border-radius: 8px !important; }
+.react-flow__controls-button { background: transparent !important; border: none !important; color: var(--forge-text) !important; }
+.react-flow__controls-button:hover { background: var(--forge-surface-2) !important; }
+.react-flow__minimap { background: var(--forge-surface) !important; border: 1px solid var(--forge-border) !important; border-radius: 8px !important; }
+.react-flow__edge-path { stroke: var(--forge-accent) !important; stroke-width: 2 !important; }
+.react-flow__edge.selected .react-flow__edge-path { stroke: #818cf8 !important; }
+.react-flow__handle { width: 10px !important; height: 10px !important; border: 2px solid var(--forge-accent) !important; background: var(--forge-bg) !important; }
+.react-flow__handle:hover { background: var(--forge-accent) !important; }
+
+.ff-skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+  background-size: 200% 100%;
+  animation: ff-shimmer 1.25s ease-in-out infinite;
+}
+
+@keyframes ff-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
